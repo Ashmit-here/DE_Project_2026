@@ -26,7 +26,7 @@
 | Group Lead | Asmit Kumar| 2501010100| Ashmit-here|
 | Member 2 | Ayushmaan Daksh | 2501010110| ayushmaan-da|
 | Member 3 | Your name |2501010359 | Priyes-h|
-| Member 4 | your name | 2501010400| Samarth-125|
+| Member 4 | Samarth Nagpal | 2501010400| Samarth-125|
 
 **Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
 
