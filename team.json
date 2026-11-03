@@ -1,0 +1,25 @@
+{
+  "team_name": "HACKTOBER_WASTE",
+  "members": [
+    {
+      "name": "Asmit Kumar",
+      "github": "Ashmit-here",
+      "enrollment_number": "2501010100"
+    },
+    {
+      "name": "Priyesh Choubey",
+      "github": "Priyes-h",
+      "enrollment_number": "2501010359"  
+    },
+    {
+      "name": "Ayushmaan Daksh",
+      "github": "ayushmaan-da",
+        "enrollment_number": "2501010110"
+    },
+    {
+        "name": "Samarth Nagpal",
+        "github": "Samarth-125",
+        "enrollment_number": "2501010400"
+    }
+  ]
+}
