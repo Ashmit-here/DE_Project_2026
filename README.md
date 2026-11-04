@@ -22,10 +22,10 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Group Lead | Asmit Kumar | 2501010100|Asmit-here
+| Member 2 | Ayushmaan Daksh| 2501010110| ayushmaan-da|
+| Member 3 | Priyesh Choubey| 2501010359| |
+| Member 4 | Samarth Nagpal| 2501010400| |
 
 **Team No.:** T0086 · **Section:** C & E · **Repository URL:** https://github.com/Ashmit-here/DE_Project_2026.git
 
