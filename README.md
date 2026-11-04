@@ -27,7 +27,7 @@
 | Member 3 | | | |
 | Member 4 | | | |
 
-**Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
+**Team No.:** T0086 · **Section:** C & E · **Repository URL:** https://github.com/Ashmit-here/DE_Project_2026.git
 
 ---
 
