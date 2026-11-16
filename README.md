@@ -36,6 +36,7 @@
 ## How this project works
 
 | Phase | What you do | You submit | Counts toward | Marks |
+
 |-------|-------------|------------|---------------|------:|
 | 1 | Understand the problem statements | `docs/01_problem_understanding.md` | Query Execution | 2 |
 | 2 | Work out the database schema **from the seed data** and load it | `sql/01_schema.sql`, `sql/02_load_data.sql`, `docs/02_schema_design.md` | Query Execution | 5 |
