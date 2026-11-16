@@ -1,0 +1,111 @@
+erDiagram
+    USERS {
+        int user_id PK
+        varchar email UK
+        varchar display_name
+        char country_code
+        smallint birth_year
+        date premium_until
+        timestamptz created_at
+    }
+
+    CHANNELS {
+        int channel_id PK
+        int owner_user_id FK, UK
+        varchar handle UK
+        varchar channel_name
+        char country_code
+        boolean is_verified
+        varchar monetization_status
+        int subscriber_count
+        timestamptz created_at
+    }
+
+    VIDEOS {
+        varchar video_id PK
+        int channel_id FK
+        varchar title
+        text description
+        varchar category
+        int duration_sec
+        boolean is_short
+        boolean is_made_for_kids
+        varchar visibility
+        timestamptz uploaded_at
+        timestamptz published_at
+        bigint view_count
+    }
+
+    SUBSCRIPTIONS {
+        int user_id PK, FK
+        int channel_id PK, FK
+        varchar notifications
+        timestamptz subscribed_at
+    }
+
+    WATCH_EVENTS {
+        bigint watch_id PK
+        int user_id FK "nullable"
+        varchar video_id FK "nullable"
+        timestamptz started_at
+        int watch_seconds
+        varchar device
+        varchar traffic_source
+    }
+
+    VIDEO_REACTIONS {
+        int user_id PK, FK
+        varchar video_id PK, FK
+        varchar reaction
+        timestamptz reacted_at
+    }
+
+    COMMENTS {
+        bigint comment_id PK
+        varchar video_id FK
+        int user_id FK
+        bigint parent_comment_id FK "nullable"
+        text body
+        int like_count
+        boolean is_pinned
+        timestamptz created_at
+    }
+
+    PLAYLISTS {
+        int playlist_id PK
+        int owner_user_id FK
+        varchar title
+        varchar visibility
+        timestamptz created_at
+    }
+
+    PLAYLIST_ITEMS {
+        int playlist_id PK, FK
+        smallint position PK
+        varchar video_id FK
+        timestamptz added_at
+    }
+
+    AD_IMPRESSIONS {
+        bigint impression_id PK
+        bigint watch_id FK
+        varchar ad_format
+        numeric revenue_inr
+        timestamptz shown_at
+    }
+
+    USERS ||--o| CHANNELS : owns
+    CHANNELS ||--o{ VIDEOS : uploads
+    USERS ||--o{ SUBSCRIPTIONS : creates
+    CHANNELS ||--o{ SUBSCRIPTIONS : receives
+    USERS o|--o{ WATCH_EVENTS : generates
+    VIDEOS ||--o{ WATCH_EVENTS : receives
+    USERS ||--o{ VIDEO_REACTIONS : makes
+    VIDEOS ||--o{ VIDEO_REACTIONS : receives
+    USERS ||--o{ COMMENTS : writes
+    VIDEOS ||--o{ COMMENTS : contains
+    COMMENTS o|--o{ COMMENTS : replies_to
+    USERS ||--o{ PLAYLISTS : owns
+    PLAYLISTS ||--o{ PLAYLIST_ITEMS : contains
+    VIDEOS ||--o{ PLAYLIST_ITEMS : appears_in
+    WATCH_EVENTS ||--o{ AD_IMPRESSIONS : generates
