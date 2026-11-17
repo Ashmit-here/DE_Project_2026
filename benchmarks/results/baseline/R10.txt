@@ -1,0 +1,96 @@
+=== R10 run 1 ===
+Limit  (cost=5676.85..5676.90 rows=20 width=44) (actual time=8.642..8.644 rows=20.00 loops=1)
+  Buffers: shared hit=2726
+  ->  Sort  (cost=5676.85..5678.41 rows=622 width=44) (actual time=8.642..8.642 rows=20.00 loops=1)
+        Sort Key: (count(*)) DESC
+        Sort Method: top-N heapsort  Memory: 26kB
+        Buffers: shared hit=2726
+        ->  GroupAggregate  (cost=5649.42..5660.30 rows=622 width=44) (actual time=8.539..8.607 rows=530.00 loops=1)
+              Group Key: v.video_id
+              Buffers: shared hit=2723
+              ->  Sort  (cost=5649.42..5650.97 rows=622 width=36) (actual time=8.534..8.543 rows=556.00 loops=1)
+                    Sort Key: v.video_id
+                    Sort Method: quicksort  Memory: 55kB
+                    Buffers: shared hit=2723
+                    ->  Hash Join  (cost=1042.04..5620.55 rows=622 width=36) (actual time=7.660..7.973 rows=556.00 loops=1)
+                          Hash Cond: ((w.video_id)::text = (v.video_id)::text)
+                          Buffers: shared hit=2720
+                          ->  Seq Scan on watch_events w  (cost=0.00..4572.00 rows=2482 width=12) (actual time=5.742..5.860 rows=2564.00 loops=1)
+                                Filter: (started_at >= '2026-06-24 00:00:00+05:30'::timestamp with time zone)
+                                Rows Removed by Filter: 197436
+                                Buffers: shared hit=2072
+                          ->  Hash  (cost=948.00..948.00 rows=7523 width=36) (actual time=1.901..1.901 rows=7523.00 loops=1)
+                                Buckets: 8192  Batches: 1  Memory Usage: 570kB
+                                Buffers: shared hit=648
+                                ->  Seq Scan on videos v  (cost=0.00..948.00 rows=7523 width=36) (actual time=0.003..1.444 rows=7523.00 loops=1)
+                                      Filter: is_short
+                                      Rows Removed by Filter: 22477
+                                      Buffers: shared hit=648
+Planning:
+  Buffers: shared hit=264
+Planning Time: 0.363 ms
+Execution Time: 8.671 ms
+=== R10 run 2 ===
+Limit  (cost=5676.85..5676.90 rows=20 width=44) (actual time=8.322..8.324 rows=20.00 loops=1)
+  Buffers: shared hit=2726
+  ->  Sort  (cost=5676.85..5678.41 rows=622 width=44) (actual time=8.322..8.323 rows=20.00 loops=1)
+        Sort Key: (count(*)) DESC
+        Sort Method: top-N heapsort  Memory: 26kB
+        Buffers: shared hit=2726
+        ->  GroupAggregate  (cost=5649.42..5660.30 rows=622 width=44) (actual time=8.220..8.286 rows=530.00 loops=1)
+              Group Key: v.video_id
+              Buffers: shared hit=2723
+              ->  Sort  (cost=5649.42..5650.97 rows=622 width=36) (actual time=8.217..8.226 rows=556.00 loops=1)
+                    Sort Key: v.video_id
+                    Sort Method: quicksort  Memory: 55kB
+                    Buffers: shared hit=2723
+                    ->  Hash Join  (cost=1042.04..5620.55 rows=622 width=36) (actual time=7.422..7.679 rows=556.00 loops=1)
+                          Hash Cond: ((w.video_id)::text = (v.video_id)::text)
+                          Buffers: shared hit=2720
+                          ->  Seq Scan on watch_events w  (cost=0.00..4572.00 rows=2482 width=12) (actual time=5.578..5.683 rows=2564.00 loops=1)
+                                Filter: (started_at >= '2026-06-24 00:00:00+05:30'::timestamp with time zone)
+                                Rows Removed by Filter: 197436
+                                Buffers: shared hit=2072
+                          ->  Hash  (cost=948.00..948.00 rows=7523 width=36) (actual time=1.833..1.834 rows=7523.00 loops=1)
+                                Buckets: 8192  Batches: 1  Memory Usage: 570kB
+                                Buffers: shared hit=648
+                                ->  Seq Scan on videos v  (cost=0.00..948.00 rows=7523 width=36) (actual time=0.003..1.384 rows=7523.00 loops=1)
+                                      Filter: is_short
+                                      Rows Removed by Filter: 22477
+                                      Buffers: shared hit=648
+Planning:
+  Buffers: shared hit=264
+Planning Time: 0.363 ms
+Execution Time: 8.348 ms
+=== R10 run 3 ===
+Limit  (cost=5676.85..5676.90 rows=20 width=44) (actual time=8.300..8.302 rows=20.00 loops=1)
+  Buffers: shared hit=2726
+  ->  Sort  (cost=5676.85..5678.41 rows=622 width=44) (actual time=8.300..8.301 rows=20.00 loops=1)
+        Sort Key: (count(*)) DESC
+        Sort Method: top-N heapsort  Memory: 26kB
+        Buffers: shared hit=2726
+        ->  GroupAggregate  (cost=5649.42..5660.30 rows=622 width=44) (actual time=8.198..8.266 rows=530.00 loops=1)
+              Group Key: v.video_id
+              Buffers: shared hit=2723
+              ->  Sort  (cost=5649.42..5650.97 rows=622 width=36) (actual time=8.195..8.205 rows=556.00 loops=1)
+                    Sort Key: v.video_id
+                    Sort Method: quicksort  Memory: 55kB
+                    Buffers: shared hit=2723
+                    ->  Hash Join  (cost=1042.04..5620.55 rows=622 width=36) (actual time=7.387..7.644 rows=556.00 loops=1)
+                          Hash Cond: ((w.video_id)::text = (v.video_id)::text)
+                          Buffers: shared hit=2720
+                          ->  Seq Scan on watch_events w  (cost=0.00..4572.00 rows=2482 width=12) (actual time=5.557..5.665 rows=2564.00 loops=1)
+                                Filter: (started_at >= '2026-06-24 00:00:00+05:30'::timestamp with time zone)
+                                Rows Removed by Filter: 197436
+                                Buffers: shared hit=2072
+                          ->  Hash  (cost=948.00..948.00 rows=7523 width=36) (actual time=1.821..1.821 rows=7523.00 loops=1)
+                                Buckets: 8192  Batches: 1  Memory Usage: 570kB
+                                Buffers: shared hit=648
+                                ->  Seq Scan on videos v  (cost=0.00..948.00 rows=7523 width=36) (actual time=0.002..1.383 rows=7523.00 loops=1)
+                                      Filter: is_short
+                                      Rows Removed by Filter: 22477
+                                      Buffers: shared hit=648
+Planning:
+  Buffers: shared hit=264
+Planning Time: 0.338 ms
+Execution Time: 8.325 ms
