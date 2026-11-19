@@ -1,0 +1,60 @@
+=== R01 run 1 ===
+Limit  (cost=0.41..8.57 rows=8 width=56) (actual time=0.441..0.448 rows=12.00 loops=1)
+  Buffers: shared hit=2 read=4
+  ->  Index Only Scan using idx_videos_channel_visibility_published on videos  (cost=0.41..8.57 rows=8 width=56) (actual time=0.440..0.446 rows=12.00 loops=1)
+        Index Cond: ((channel_id = 217) AND (visibility = 'PUBLIC'::text))
+        Heap Fetches: 1
+        Index Searches: 1
+        Buffers: shared hit=2 read=4
+Planning:
+  Buffers: shared hit=243 read=7
+Planning Time: 1.791 ms
+Execution Time: 0.461 ms
+=== R01 run 2 ===
+Limit  (cost=0.41..8.57 rows=8 width=56) (actual time=0.059..0.065 rows=12.00 loops=1)
+  Buffers: shared hit=6
+  ->  Index Only Scan using idx_videos_channel_visibility_published on videos  (cost=0.41..8.57 rows=8 width=56) (actual time=0.058..0.063 rows=12.00 loops=1)
+        Index Cond: ((channel_id = 217) AND (visibility = 'PUBLIC'::text))
+        Heap Fetches: 1
+        Index Searches: 1
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=250
+Planning Time: 0.507 ms
+Execution Time: 0.087 ms
+=== R01 run 3 ===
+Limit  (cost=0.41..8.57 rows=8 width=56) (actual time=0.049..0.052 rows=12.00 loops=1)
+  Buffers: shared hit=6
+  ->  Index Only Scan using idx_videos_channel_visibility_published on videos  (cost=0.41..8.57 rows=8 width=56) (actual time=0.049..0.051 rows=12.00 loops=1)
+        Index Cond: ((channel_id = 217) AND (visibility = 'PUBLIC'::text))
+        Heap Fetches: 1
+        Index Searches: 1
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=250
+Planning Time: 0.523 ms
+Execution Time: 0.066 ms
+=== R01 run 4 ===
+Limit  (cost=0.41..8.57 rows=8 width=56) (actual time=0.043..0.047 rows=12.00 loops=1)
+  Buffers: shared hit=6
+  ->  Index Only Scan using idx_videos_channel_visibility_published on videos  (cost=0.41..8.57 rows=8 width=56) (actual time=0.042..0.045 rows=12.00 loops=1)
+        Index Cond: ((channel_id = 217) AND (visibility = 'PUBLIC'::text))
+        Heap Fetches: 1
+        Index Searches: 1
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=250
+Planning Time: 0.481 ms
+Execution Time: 0.063 ms
+=== R01 run 5 ===
+Limit  (cost=0.41..8.57 rows=8 width=56) (actual time=0.034..0.037 rows=12.00 loops=1)
+  Buffers: shared hit=6
+  ->  Index Only Scan using idx_videos_channel_visibility_published on videos  (cost=0.41..8.57 rows=8 width=56) (actual time=0.034..0.036 rows=12.00 loops=1)
+        Index Cond: ((channel_id = 217) AND (visibility = 'PUBLIC'::text))
+        Heap Fetches: 1
+        Index Searches: 1
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=250
+Planning Time: 0.401 ms
+Execution Time: 0.048 ms

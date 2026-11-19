@@ -1,0 +1,50 @@
+=== R23 run 1 ===
+Limit  (cost=1547.91..1549.20 rows=25 width=52) (actual time=4.066..4.069 rows=25.00 loops=1)
+  Buffers: shared hit=347 read=183
+  ->  Index Scan using idx_comments_created on comments  (cost=0.41..3095.41 rows=60000 width=52) (actual time=0.316..3.550 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=347 read=183
+Planning:
+  Buffers: shared hit=206
+Planning Time: 0.273 ms
+Execution Time: 4.081 ms
+=== R23 run 2 ===
+Limit  (cost=1547.91..1549.20 rows=25 width=52) (actual time=2.507..2.510 rows=25.00 loops=1)
+  Buffers: shared hit=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.41..3095.41 rows=60000 width=52) (actual time=0.007..2.025 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=530
+Planning:
+  Buffers: shared hit=206
+Planning Time: 0.271 ms
+Execution Time: 2.521 ms
+=== R23 run 3 ===
+Limit  (cost=1547.91..1549.20 rows=25 width=52) (actual time=2.421..2.423 rows=25.00 loops=1)
+  Buffers: shared hit=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.41..3095.41 rows=60000 width=52) (actual time=0.007..1.950 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=530
+Planning:
+  Buffers: shared hit=206
+Planning Time: 0.257 ms
+Execution Time: 2.434 ms
+=== R23 run 4 ===
+Limit  (cost=1547.91..1549.20 rows=25 width=52) (actual time=2.406..2.408 rows=25.00 loops=1)
+  Buffers: shared hit=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.41..3095.41 rows=60000 width=52) (actual time=0.007..1.940 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=530
+Planning:
+  Buffers: shared hit=206
+Planning Time: 0.261 ms
+Execution Time: 2.419 ms
+=== R23 run 5 ===
+Limit  (cost=1547.91..1549.20 rows=25 width=52) (actual time=2.429..2.431 rows=25.00 loops=1)
+  Buffers: shared hit=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.41..3095.41 rows=60000 width=52) (actual time=0.007..1.959 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=530
+Planning:
+  Buffers: shared hit=206
+Planning Time: 0.253 ms
+Execution Time: 2.443 ms

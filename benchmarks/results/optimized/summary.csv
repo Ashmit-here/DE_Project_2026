@@ -1,0 +1,31 @@
+query_id,type,avg_ms,median_ms,min_ms,max_ms,scan_nodes
+R01,READ,0.145,0.066,0.048,0.461,Index Only Scan using idx_videos_channel_visibility_published on videos
+R02,READ,0.100,0.039,0.032,0.355,Index Scan using videos_pkey on videos | Index Scan using channels_pkey on channels
+R03,READ,0.279,0.111,0.096,0.968,Index Only Scan using pk_subscriptions on subscriptions | Index Scan using channels_pkey on channels | Index Only Scan using idx_videos_channel_visibility_published on videos
+R04,READ,1.739,1.646,1.467,2.338,Bitmap Heap Scan on videos | Bitmap Index Scan on idx_videos_title_trgm_public
+R05,READ,0.209,0.044,0.043,0.868,Index Only Scan using idx_watch_events_user_started on watch_events | Index Scan using videos_pkey on videos
+R06,READ,0.055,0.052,0.051,0.066,Bitmap Heap Scan on videos | Bitmap Index Scan on idx_videos_scheduled_published
+R07,READ,0.705,0.230,0.213,2.612,Index Only Scan using idx_videos_channel on videos | Bitmap Heap Scan on watch_events | Bitmap Index Scan on idx_watch_events_video_user
+R08,READ,0.093,0.090,0.079,0.124,Index Only Scan using idx_watch_events_video_user on watch_events
+R09,READ,0.145,0.145,0.142,0.148,Index Only Scan using idx_videos_channel_visibility_published on videos | Index Only Scan using idx_watch_events_video_user on watch_events
+R10,READ,2.163,1.946,1.823,3.159,Index Only Scan using idx_watch_events_started_video on watch_events | Index Scan using idx_videos_shorts on videos
+R11,READ,9.207,9.043,8.835,9.959,Index Only Scan using idx_watch_events_started_video on watch_events | Seq Scan on videos
+R12,READ,11.763,11.205,11.095,13.907,Seq Scan on watch_events
+R13,READ,0.185,0.126,0.120,0.427,Index Only Scan using idx_videos_channel on videos | Index Only Scan using idx_watch_events_video_user on watch_events | Index Only Scan using idx_subscriptions_channel_user on subscriptions
+R14,READ,0.406,0.179,0.173,1.322,Index Only Scan using idx_videos_channel_visibility_published on videos | Bitmap Heap Scan on video_reactions | Bitmap Index Scan on idx_video_reactions_video_reaction
+R15,READ,0.083,0.042,0.040,0.251,Bitmap Heap Scan on comments | Bitmap Index Scan on idx_comments_video
+R16,READ,12.528,12.034,11.719,14.636,Seq Scan on watch_events | Index Only Scan using idx_ad_impressions_shown_watch on ad_impressions | Index Scan using videos_pkey on videos
+R17,READ,22.859,12.674,12.165,64.367,Seq Scan on channels | Index Only Scan using idx_videos_channel on videos | Index Only Scan using idx_watch_events_video_user on watch_events
+R18,READ,1.684,1.460,1.376,2.713,Index Scan using idx_videos_made_for_kids on videos | Index Only Scan using idx_comments_video on comments
+R19,READ,41.706,37.986,37.896,56.630,Seq Scan on watch_events | Seq Scan on videos | Seq Scan on channels
+R20,READ,1.638,1.612,1.564,1.723,Index Only Scan using idx_watch_events_started_video on watch_events
+R21,READ,0.171,0.076,0.073,0.553,Index Scan using pk_playlist_items on playlist_items | Index Scan using videos_pkey on videos
+R22,READ,4.049,3.785,3.697,5.177,Index Only Scan using idx_videos_title_duration_channel on videos
+R23,READ,2.780,2.443,2.419,4.081,Index Scan using idx_comments_created on comments
+R24,READ,0.162,0.091,0.087,0.452,Index Only Scan using idx_subscriptions_channel_date on subscriptions
+R25,READ,28.201,27.711,27.443,29.779,Seq Scan on watch_events | Seq Scan on ad_impressions | Seq Scan on users
+W01,WRITE,1.129,0.910,0.870,2.042,(no scan)
+W02,WRITE,0.855,0.735,0.721,1.339,(no scan)
+W03,WRITE,0.811,0.609,0.582,1.644,Index Scan using videos_pkey on videos
+W04,WRITE,27.307,26.974,26.495,28.640,Seq Scan on channels | Seq Scan on subscriptions
+W05,WRITE,1.112,0.765,0.680,2.574,Bitmap Heap Scan on videos | Bitmap Index Scan on idx_videos_scheduled_published

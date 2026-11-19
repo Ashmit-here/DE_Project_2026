@@ -1,0 +1,75 @@
+=== R18 run 1 ===
+Nested Loop Semi Join  (cost=0.56..532.58 rows=343 width=40) (actual time=0.162..2.685 rows=397.00 loops=1)
+  Buffers: shared hit=1223 read=136
+  ->  Index Scan using idx_videos_made_for_kids on videos v  (cost=0.27..38.62 rows=499 width=40) (actual time=0.129..0.424 rows=499.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=357 read=3
+  ->  Index Only Scan using idx_comments_video on comments c  (cost=0.29..1.80 rows=3 width=12) (actual time=0.004..0.004 rows=0.80 loops=499)
+        Index Cond: (video_id = (v.video_id)::text)
+        Heap Fetches: 0
+        Index Searches: 499
+        Buffers: shared hit=866 read=133
+Planning:
+  Buffers: shared hit=472 read=2
+Planning Time: 1.112 ms
+Execution Time: 2.713 ms
+=== R18 run 2 ===
+Nested Loop Semi Join  (cost=0.56..532.58 rows=343 width=40) (actual time=0.008..1.434 rows=397.00 loops=1)
+  Buffers: shared hit=1359
+  ->  Index Scan using idx_videos_made_for_kids on videos v  (cost=0.27..38.62 rows=499 width=40) (actual time=0.004..0.264 rows=499.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=360
+  ->  Index Only Scan using idx_comments_video on comments c  (cost=0.29..1.80 rows=3 width=12) (actual time=0.002..0.002 rows=0.80 loops=499)
+        Index Cond: (video_id = (v.video_id)::text)
+        Heap Fetches: 0
+        Index Searches: 499
+        Buffers: shared hit=999
+Planning:
+  Buffers: shared hit=474
+Planning Time: 0.749 ms
+Execution Time: 1.460 ms
+=== R18 run 3 ===
+Nested Loop Semi Join  (cost=0.56..532.58 rows=343 width=40) (actual time=0.008..1.461 rows=397.00 loops=1)
+  Buffers: shared hit=1359
+  ->  Index Scan using idx_videos_made_for_kids on videos v  (cost=0.27..38.62 rows=499 width=40) (actual time=0.004..0.270 rows=499.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=360
+  ->  Index Only Scan using idx_comments_video on comments c  (cost=0.29..1.80 rows=3 width=12) (actual time=0.002..0.002 rows=0.80 loops=499)
+        Index Cond: (video_id = (v.video_id)::text)
+        Heap Fetches: 0
+        Index Searches: 499
+        Buffers: shared hit=999
+Planning:
+  Buffers: shared hit=474
+Planning Time: 0.716 ms
+Execution Time: 1.486 ms
+=== R18 run 4 ===
+Nested Loop Semi Join  (cost=0.56..532.58 rows=343 width=40) (actual time=0.008..1.351 rows=397.00 loops=1)
+  Buffers: shared hit=1359
+  ->  Index Scan using idx_videos_made_for_kids on videos v  (cost=0.27..38.62 rows=499 width=40) (actual time=0.004..0.255 rows=499.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=360
+  ->  Index Only Scan using idx_comments_video on comments c  (cost=0.29..1.80 rows=3 width=12) (actual time=0.002..0.002 rows=0.80 loops=499)
+        Index Cond: (video_id = (v.video_id)::text)
+        Heap Fetches: 0
+        Index Searches: 499
+        Buffers: shared hit=999
+Planning:
+  Buffers: shared hit=474
+Planning Time: 0.697 ms
+Execution Time: 1.376 ms
+=== R18 run 5 ===
+Nested Loop Semi Join  (cost=0.56..532.58 rows=343 width=40) (actual time=0.008..1.362 rows=397.00 loops=1)
+  Buffers: shared hit=1359
+  ->  Index Scan using idx_videos_made_for_kids on videos v  (cost=0.27..38.62 rows=499 width=40) (actual time=0.004..0.259 rows=499.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=360
+  ->  Index Only Scan using idx_comments_video on comments c  (cost=0.29..1.80 rows=3 width=12) (actual time=0.002..0.002 rows=0.80 loops=499)
+        Index Cond: (video_id = (v.video_id)::text)
+        Heap Fetches: 0
+        Index Searches: 499
+        Buffers: shared hit=999
+Planning:
+  Buffers: shared hit=474
+Planning Time: 0.710 ms
+Execution Time: 1.387 ms
