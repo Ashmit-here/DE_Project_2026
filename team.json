@@ -1,25 +1,25 @@
 {
-  "team_name": "Rog_Rakshak",
+  "team_number": "T0086",
+  "group_lead": {
+    "name": "Asmit Kumar",
+    "enrollment_no": "2501010100",
+    "github": "Ashmit-here"
+  },
   "members": [
     {
-      "name": "Asmit Kumar",
-      "github": "Ashmit-here",
-      "enrollment_number": "2501010100"
+      "name": "Ayushmaan Daksh",
+      "enrollment_no": "2501010110",
+      "github": "ayushmaan-da"
     },
     {
       "name": "Priyesh Choubey",
-      "github": "Priyes-h",
-      "enrollment_number": "2501010359"  
+      "enrollment_no": "2501010359",
+      "github": "Priyes-h"
     },
     {
-      "name": "Ayushmaan Daksh",
-      "github": "ayushmaan-da",
-        "enrollment_number": "2501010110"
-    },
-    {
-        "name": "Samarth Nagpal",
-        "github": "Samarth-125",
-        "enrollment_number": "2501010400"
+      "name": "Samarth Nagpal",
+      "enrollment_no": "2501010400",
+      "github": "Samarth-125"
     }
   ]
 }
