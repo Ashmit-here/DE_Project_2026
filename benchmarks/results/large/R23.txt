@@ -1,0 +1,30 @@
+=== R23 run 1 ===
+Limit  (cost=1522.20..1523.47 rows=25 width=52) (actual time=3.743..3.745 rows=25.00 loops=1)
+  Buffers: shared read=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.43..60871.43 rows=1200000 width=52) (actual time=0.014..3.211 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared read=530
+Planning:
+  Buffers: shared hit=175 read=6
+Planning Time: 0.374 ms
+Execution Time: 3.757 ms
+=== R23 run 2 ===
+Limit  (cost=1522.20..1523.47 rows=25 width=52) (actual time=2.816..2.818 rows=25.00 loops=1)
+  Buffers: shared hit=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.43..60871.43 rows=1200000 width=52) (actual time=0.006..2.304 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=530
+Planning:
+  Buffers: shared hit=181
+Planning Time: 0.265 ms
+Execution Time: 2.829 ms
+=== R23 run 3 ===
+Limit  (cost=1522.20..1523.47 rows=25 width=52) (actual time=2.865..2.867 rows=25.00 loops=1)
+  Buffers: shared hit=530
+  ->  Index Scan using idx_comments_created on comments  (cost=0.43..60871.43 rows=1200000 width=52) (actual time=0.007..2.357 rows=30025.00 loops=1)
+        Index Searches: 1
+        Buffers: shared hit=530
+Planning:
+  Buffers: shared hit=181
+Planning Time: 0.271 ms
+Execution Time: 2.877 ms

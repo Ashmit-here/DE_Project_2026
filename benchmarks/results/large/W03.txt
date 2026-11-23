@@ -1,0 +1,33 @@
+=== W03 run 1 ===
+Update on videos  (cost=0.42..8.45 rows=0 width=0) (actual time=0.962..0.963 rows=0.00 loops=1)
+  Buffers: shared hit=65 read=8 dirtied=5
+  ->  Index Scan using videos_pkey on videos  (cost=0.42..8.45 rows=1 width=14) (actual time=0.011..0.011 rows=1.00 loops=1)
+        Index Cond: ((video_id)::text = 'ZkNSlUB1EOs'::text)
+        Index Searches: 1
+        Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.404 ms
+Execution Time: 1.468 ms
+=== W03 run 2 ===
+Update on videos  (cost=0.42..8.45 rows=0 width=0) (actual time=0.543..0.543 rows=0.00 loops=1)
+  Buffers: shared hit=74
+  ->  Index Scan using videos_pkey on videos  (cost=0.42..8.45 rows=1 width=14) (actual time=0.018..0.019 rows=1.00 loops=1)
+        Index Cond: ((video_id)::text = 'ZkNSlUB1EOs'::text)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.358 ms
+Execution Time: 0.587 ms
+=== W03 run 3 ===
+Update on videos  (cost=0.42..8.45 rows=0 width=0) (actual time=0.623..0.623 rows=0.00 loops=1)
+  Buffers: shared hit=78 read=1 dirtied=1
+  ->  Index Scan using videos_pkey on videos  (cost=0.42..8.45 rows=1 width=14) (actual time=0.020..0.020 rows=1.00 loops=1)
+        Index Cond: ((video_id)::text = 'ZkNSlUB1EOs'::text)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.366 ms
+Execution Time: 0.669 ms

@@ -1,0 +1,75 @@
+=== R07 run 1 ===
+GroupAggregate  (cost=496.41..496.56 rows=5 width=44) (actual time=5.838..5.842 rows=13.00 loops=1)
+  Group Key: (date(w.started_at))
+  Buffers: shared hit=88 read=510
+  ->  Sort  (cost=496.41..496.43 rows=5 width=8) (actual time=5.830..5.830 rows=20.00 loops=1)
+        Sort Key: (date(w.started_at))
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=88 read=510
+        ->  Nested Loop  (cost=0.85..496.36 rows=5 width=8) (actual time=0.235..5.820 rows=20.00 loops=1)
+              Buffers: shared hit=85 read=510
+              ->  Index Only Scan using idx_videos_channel on videos v  (cost=0.42..8.63 rows=12 width=12) (actual time=0.009..0.017 rows=60.00 loops=1)
+                    Index Cond: (channel_id = 217)
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=3 read=2
+              ->  Index Scan using idx_watch_events_video_user on watch_events w  (cost=0.43..40.63 rows=1 width=24) (actual time=0.084..0.096 rows=0.33 loops=60)
+                    Index Cond: ((video_id)::text = (v.video_id)::text)
+                    Filter: ((started_at >= '2026-06-01'::date) AND (started_at < '2026-07-01'::date))
+                    Rows Removed by Filter: 6
+                    Index Searches: 60
+                    Buffers: shared hit=82 read=508
+Planning:
+  Buffers: shared hit=504 read=3
+Planning Time: 0.835 ms
+Execution Time: 5.874 ms
+=== R07 run 2 ===
+GroupAggregate  (cost=496.41..496.56 rows=5 width=44) (actual time=0.566..0.570 rows=13.00 loops=1)
+  Group Key: (date(w.started_at))
+  Buffers: shared hit=598
+  ->  Sort  (cost=496.41..496.43 rows=5 width=8) (actual time=0.559..0.560 rows=20.00 loops=1)
+        Sort Key: (date(w.started_at))
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=598
+        ->  Nested Loop  (cost=0.85..496.36 rows=5 width=8) (actual time=0.040..0.553 rows=20.00 loops=1)
+              Buffers: shared hit=595
+              ->  Index Only Scan using idx_videos_channel on videos v  (cost=0.42..8.63 rows=12 width=12) (actual time=0.006..0.009 rows=60.00 loops=1)
+                    Index Cond: (channel_id = 217)
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=5
+              ->  Index Scan using idx_watch_events_video_user on watch_events w  (cost=0.43..40.63 rows=1 width=24) (actual time=0.008..0.009 rows=0.33 loops=60)
+                    Index Cond: ((video_id)::text = (v.video_id)::text)
+                    Filter: ((started_at >= '2026-06-01'::date) AND (started_at < '2026-07-01'::date))
+                    Rows Removed by Filter: 6
+                    Index Searches: 60
+                    Buffers: shared hit=590
+Planning:
+  Buffers: shared hit=507
+Planning Time: 0.685 ms
+Execution Time: 0.599 ms
+=== R07 run 3 ===
+GroupAggregate  (cost=496.41..496.56 rows=5 width=44) (actual time=0.529..0.533 rows=13.00 loops=1)
+  Group Key: (date(w.started_at))
+  Buffers: shared hit=598
+  ->  Sort  (cost=496.41..496.43 rows=5 width=8) (actual time=0.523..0.524 rows=20.00 loops=1)
+        Sort Key: (date(w.started_at))
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=598
+        ->  Nested Loop  (cost=0.85..496.36 rows=5 width=8) (actual time=0.039..0.516 rows=20.00 loops=1)
+              Buffers: shared hit=595
+              ->  Index Only Scan using idx_videos_channel on videos v  (cost=0.42..8.63 rows=12 width=12) (actual time=0.006..0.009 rows=60.00 loops=1)
+                    Index Cond: (channel_id = 217)
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=5
+              ->  Index Scan using idx_watch_events_video_user on watch_events w  (cost=0.43..40.63 rows=1 width=24) (actual time=0.007..0.008 rows=0.33 loops=60)
+                    Index Cond: ((video_id)::text = (v.video_id)::text)
+                    Filter: ((started_at >= '2026-06-01'::date) AND (started_at < '2026-07-01'::date))
+                    Rows Removed by Filter: 6
+                    Index Searches: 60
+                    Buffers: shared hit=590
+Planning:
+  Buffers: shared hit=507
+Planning Time: 0.693 ms
+Execution Time: 0.561 ms

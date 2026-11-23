@@ -1,0 +1,63 @@
+=== R20 run 1 ===
+WindowAgg  (cost=33268.25..42864.36 rows=225792 width=68) (actual time=27.733..39.146 rows=30.00 loops=1)
+  Window: w1 AS (ORDER BY ((watch_events.started_at)::date))
+  Storage: Memory  Maximum Storage: 17kB
+  Buffers: shared hit=27 read=1084, temp read=486 written=488
+  ->  GroupAggregate  (cost=33268.20..39477.48 rows=225792 width=36) (actual time=27.298..39.127 rows=30.00 loops=1)
+        Group Key: ((watch_events.started_at)::date)
+        Buffers: shared hit=27 read=1084, temp read=486 written=488
+        ->  Sort  (cost=33268.20..33832.68 rows=225792 width=8) (actual time=26.876..32.807 rows=219780.00 loops=1)
+              Sort Key: ((watch_events.started_at)::date)
+              Sort Method: external merge  Disk: 3888kB
+              Buffers: shared hit=27 read=1084, temp read=486 written=488
+              ->  Index Only Scan using idx_watch_events_started_video on watch_events  (cost=0.43..10103.06 rows=225792 width=8) (actual time=0.015..16.906 rows=219780.00 loops=1)
+                    Index Cond: ((started_at >= '2026-06-01'::date) AND (started_at < '2026-07-01'::date))
+                    Heap Fetches: 1769
+                    Index Searches: 1
+                    Buffers: shared hit=24 read=1084
+Planning:
+  Buffers: shared hit=217 read=5
+Planning Time: 0.453 ms
+Execution Time: 40.710 ms
+=== R20 run 2 ===
+WindowAgg  (cost=33268.25..42864.36 rows=225792 width=68) (actual time=25.426..37.227 rows=30.00 loops=1)
+  Window: w1 AS (ORDER BY ((watch_events.started_at)::date))
+  Storage: Memory  Maximum Storage: 17kB
+  Buffers: shared hit=1111, temp read=486 written=488
+  ->  GroupAggregate  (cost=33268.20..39477.48 rows=225792 width=36) (actual time=24.997..37.211 rows=30.00 loops=1)
+        Group Key: ((watch_events.started_at)::date)
+        Buffers: shared hit=1111, temp read=486 written=488
+        ->  Sort  (cost=33268.20..33832.68 rows=225792 width=8) (actual time=24.575..30.693 rows=219780.00 loops=1)
+              Sort Key: ((watch_events.started_at)::date)
+              Sort Method: external merge  Disk: 3888kB
+              Buffers: shared hit=1111, temp read=486 written=488
+              ->  Index Only Scan using idx_watch_events_started_video on watch_events  (cost=0.43..10103.06 rows=225792 width=8) (actual time=0.010..15.015 rows=219780.00 loops=1)
+                    Index Cond: ((started_at >= '2026-06-01'::date) AND (started_at < '2026-07-01'::date))
+                    Heap Fetches: 1769
+                    Index Searches: 1
+                    Buffers: shared hit=1108
+Planning:
+  Buffers: shared hit=222
+Planning Time: 0.328 ms
+Execution Time: 38.241 ms
+=== R20 run 3 ===
+WindowAgg  (cost=33268.25..42864.36 rows=225792 width=68) (actual time=26.129..38.187 rows=30.00 loops=1)
+  Window: w1 AS (ORDER BY ((watch_events.started_at)::date))
+  Storage: Memory  Maximum Storage: 17kB
+  Buffers: shared hit=1111, temp read=486 written=488
+  ->  GroupAggregate  (cost=33268.20..39477.48 rows=225792 width=36) (actual time=25.680..38.170 rows=30.00 loops=1)
+        Group Key: ((watch_events.started_at)::date)
+        Buffers: shared hit=1111, temp read=486 written=488
+        ->  Sort  (cost=33268.20..33832.68 rows=225792 width=8) (actual time=25.233..31.531 rows=219780.00 loops=1)
+              Sort Key: ((watch_events.started_at)::date)
+              Sort Method: external merge  Disk: 3888kB
+              Buffers: shared hit=1111, temp read=486 written=488
+              ->  Index Only Scan using idx_watch_events_started_video on watch_events  (cost=0.43..10103.06 rows=225792 width=8) (actual time=0.010..15.502 rows=219780.00 loops=1)
+                    Index Cond: ((started_at >= '2026-06-01'::date) AND (started_at < '2026-07-01'::date))
+                    Heap Fetches: 1769
+                    Index Searches: 1
+                    Buffers: shared hit=1108
+Planning:
+  Buffers: shared hit=222
+Planning Time: 0.326 ms
+Execution Time: 39.183 ms
